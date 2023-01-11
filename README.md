@@ -26,6 +26,6 @@ west update
 The application can be built by running:
 
 ```shell
-cd video-overlays-zephyr-app
+cd arduino-nano-33-ble-zephyr-app
 west build -p -b arduino_nano_33_ble_sense -s app
 ```
