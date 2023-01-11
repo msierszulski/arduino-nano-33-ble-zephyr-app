@@ -3,9 +3,9 @@ manifest:
     - name: zephyrproject-rtos
       url-base: https://github.com/zephyrproject-rtos
   defaults:
-    remote: zephyrproject
+    remote: zephyrproject-rtos
   projects:
     - name: zephyr
-      remote: zephyrproject
+      remote: zephyrproject-rtos
       revision: main
       import: true
