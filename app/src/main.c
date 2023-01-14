@@ -87,7 +87,7 @@ void main(void)
 	 * of starting delayed work so we do it here
 	 */
 	while (1) {
-		k_sleep(K_SECONDS(1));
+		k_sleep(K_SECONDS(5));
 
 		indicate();
 	}

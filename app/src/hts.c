@@ -60,7 +60,7 @@ void indicate(void)
 
 	static uint8_t htm[5];
 	static double temperature = 0U;
-	static double humid = 0U;
+	static uint32_t humid = 0U;
 	uint32_t mantissa;
 	uint8_t exponent;
 	int r;
@@ -90,16 +90,10 @@ void indicate(void)
 	if (bt_gatt_indicate(NULL, &ind_params) == 0) {
 		indicating = 1U;
 	}
-	mantissa = (uint32_t)(humid * 100);
-	exponent = (uint8_t)-2;
-
-	htm[0] = 0; /* temperature in celsius */
-	sys_put_le24(mantissa, (uint8_t *)&htm[1]);
-	htm[4] = exponent;
 
 	ind_params.attr = &hts_svc.attrs[4];
-	ind_params.data = &htm;
-	ind_params.len = sizeof(htm);
+	ind_params.data = &humid;
+	ind_params.len = sizeof(humid);
 
 	if (bt_gatt_indicate(NULL, &ind_params) == 0) {
 		indicating = 1U;
